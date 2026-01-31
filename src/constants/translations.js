@@ -48,8 +48,25 @@ export const translations = {
       s3_desc:
         'لأصحاب المشاريع الناشئة والمستعجلين.. عندنا تشكيلة جاهزة فاخرة (بدون طباعة) تفك أزمة.',
     },
+    booking: {
+      title: 'اتصل بنا واحجز موعدك',
+      subtitle: 'النتائج الاستراتيجية تبدأ بمكالمة واحدة',
+      desc: 'اختر الطريقة اللي تريحك. ودك تحجز مباشرة بجدولنا؟ ولا حاب ترسلي تفاصيل مشروعك أول ونراجعها؟ حنا جاهزين.',
+      direct_title: 'احجز مباشرة',
+      direct_desc:
+        'اختر الوقت اللي يناسبك واحجزه في جدولنا فوراً. بدون إيميلات رايحة وجاية.',
+      direct_btn: 'احجز عبر Cal.com',
+      discuss_title: 'حاب ندردش أول؟',
+      discuss_desc:
+        'عندك أسئلة محددة أو مشروع كبير؟ عبي النموذج وراح نراجع طلبك ونرد عليك.',
+      discuss_btn: 'عبي النموذج',
+      back: 'العودة للاختيار',
+      select_event: 'اختر نوع اللقاء',
+      event_desc: 'كل اللقاءات تتم عبر مكالمة فيديو. اختر التخصص اللي يهمك.',
+      instant: 'تأكيد فوري',
+      response: 'رد خلال ٢٤ ساعة',
+    },
     contact: {
-      title: 'تواصل معنا',
       subtitle: 'حنا بالخدمة دائماً',
       name: 'الاسم الكريم',
       email: 'البريد الإلكتروني',
@@ -146,8 +163,26 @@ export const translations = {
       s3_desc:
         'For startups and those in a hurry.. we have a luxury ready-made collection (unprinted) to save the day.',
     },
+    booking: {
+      title: 'Contact Us & Book a Session',
+      subtitle: 'Strategic results start with a single call',
+      desc: "Choose the path that fits you best. Want to book directly into our calendar? Or prefer to send project details first for review? We're ready.",
+      direct_title: 'Schedule Directly',
+      direct_desc:
+        'Pick a time that works for you and get it on our calendars immediately. No back-and-forth emails.',
+      direct_btn: 'Book via Cal.com',
+      discuss_title: 'Prefer to Discuss First?',
+      discuss_desc:
+        'Have specific questions or a large project? Fill out the form and we will review your request.',
+      discuss_btn: 'Fill the Form',
+      back: 'Back to Selection',
+      select_event: 'Select an Event Type',
+      event_desc:
+        'All sessions are conducted via video call. Choose your focus area below.',
+      instant: 'Instant Confirmation',
+      response: 'Response within 24h',
+    },
     contact: {
-      title: 'Contact Us',
       subtitle: 'WE ARE ALWAYS HERE TO HELP',
       name: 'Full Name',
       email: 'Email Address',
