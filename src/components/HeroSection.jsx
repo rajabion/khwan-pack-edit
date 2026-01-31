@@ -27,7 +27,7 @@ export default function HeroSection() {
               </span>
             </div>
 
-            <h1 className="text-5xl lg:text-7xl font-bold text-slate-900 dark:text-white leading-[1.1]">
+            <h1 className="text-5xl lg:text-7xl font-bold text-slate-900 leading-[1.1]">
               {lang === 'ar' ? (
                 <>
                   نحن <span className="text-primary">نخطط</span>،
@@ -48,7 +48,7 @@ export default function HeroSection() {
             </h1>
 
             <p
-              className="text-lg text-slate-600 dark:text-slate-400 max-w-xl font-arabic leading-relaxed"
+              className="text-lg text-slate-600 max-w-xl font-arabic leading-relaxed"
               dir={lang === 'ar' ? 'rtl' : 'ltr'}
             >
               {t('hero.desc')}
@@ -58,14 +58,17 @@ export default function HeroSection() {
               <button
                 onClick={() =>
                   document
+
                     .getElementById('catalog')
+
                     ?.scrollIntoView({ behavior: 'smooth' })
                 }
                 className="px-8 py-4 bg-primary text-white font-bold rounded shadow-xl shadow-primary/25 hover:-translate-y-1 transition-all active:scale-95"
               >
                 {t('hero.cta_primary')}
               </button>
-              <button className="px-8 py-4 border-2 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold rounded hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+
+              <button className="px-8 py-4 border-2 border-slate-200 text-slate-700 font-bold rounded hover:bg-slate-50 transition-all">
                 {t('hero.cta_secondary')}
               </button>
             </div>
@@ -77,7 +80,7 @@ export default function HeroSection() {
             <div className="relative aspect-square">
               <img
                 alt="Branded packaging mockup"
-                className="w-full h-full object-cover rounded-2xl shadow-2xl border-4 border-white dark:border-slate-800"
+                className="w-full h-full object-cover rounded-2xl shadow-2xl border-4 border-white"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBr58f3Ywt4JLpSKBoQPr5i9xb-vQV_fyVF8U84LfUl8v3keheemAYmJFe2N58R5CFn5o5n3Q8AGu2pJmqSKcUysXod2k6vQSc4EZ_g0aZ-bZOHBztqsxKGnmJggZwBfpRfDNsbE4lhu6bXtutq62GFEZqSkWP9z_DBwOwcfe6_PZM4iv8Qmg_OYnQ1CcP8sKmhoz8jVTpOM0xMXPm3uXyBTCe6sUqMq4ZUPR2kBuvVnsyNToOCRNEGBlKbsSt-bmwzoaO7bRGDAE"
               />
               <div className="absolute -top-4 -right-4 w-32 h-32 bg-accent/20 rounded-full blur-3xl"></div>

@@ -5,15 +5,13 @@ import { useLang } from '../context/LanguageContext';
 export default function Header() {
   const { lang, toggleLang, t } = useLang();
 
-  const toggleTheme = () => document.documentElement.classList.toggle('dark');
-
   return (
-    <header className="fixed w-full z-50 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+    <header className="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex items-center gap-4 group">
             <div className="flex flex-col">
-              <span className="text-2xl font-bold tracking-tighter text-slate-900 dark:text-white leading-none group-hover:text-primary transition-colors">
+              <span className="text-2xl font-bold tracking-tighter text-slate-900 leading-none group-hover:text-primary transition-colors">
                 KHWAN PACK
               </span>
               <span
@@ -43,24 +41,12 @@ export default function Header() {
               {t('nav.catalog')}
             </a>
 
-            <div className="flex items-center gap-4 ml-4 pl-4 border-l border-slate-200 dark:border-slate-800">
+            <div className="flex items-center gap-4 ml-4 pl-4 border-l border-slate-200">
               <button
                 onClick={toggleLang}
                 className="px-3 py-1 border border-primary rounded text-xs font-bold hover:bg-primary hover:text-white transition-all text-primary"
               >
                 {lang === 'ar' ? 'EN' : 'AR'}
-              </button>
-
-              <button
-                onClick={toggleTheme}
-                className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-              >
-                <span className="material-symbols-outlined dark:hidden text-slate-600">
-                  dark_mode
-                </span>
-                <span className="material-symbols-outlined hidden dark:block text-brand-yellow">
-                  light_mode
-                </span>
               </button>
 
               <a
@@ -72,7 +58,7 @@ export default function Header() {
             </div>
           </nav>
 
-          <button className="md:hidden p-2 text-slate-600 dark:text-slate-400">
+          <button className="md:hidden p-2 text-slate-600">
             <span className="material-icons">menu</span>
           </button>
         </div>

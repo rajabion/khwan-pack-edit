@@ -10,7 +10,7 @@ export default function MainLayout() {
 
   return (
     <div
-      className={`min-h-screen transition-colors duration-300 ${lang === 'ar' ? 'font-arabic' : 'font-body'}`}
+      className={`min-h-screen transition-colors duration-300 bg-background-light ${lang === 'ar' ? 'font-arabic' : 'font-body'}`}
       dir={lang === 'ar' ? 'rtl' : 'ltr'}
     >
       <Header />

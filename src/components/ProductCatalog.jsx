@@ -22,17 +22,14 @@ export default function ProductCatalog() {
   };
 
   return (
-    <section
-      id="catalog"
-      className="py-20 bg-background-light dark:bg-background-dark min-h-screen"
-    >
+    <section id="catalog" className="py-20 bg-background-light min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
           <div className={lang === 'ar' ? 'text-right' : 'text-left'}>
-            <h2 className="text-4xl font-display font-black text-slate-900 dark:text-white mb-2">
+            <h2 className="text-4xl font-display font-black text-slate-900 mb-2">
               {t('catalog.title')}
             </h2>
-            <p className="text-slate-500 dark:text-slate-400 font-arabic">
+            <p className="text-slate-500 font-arabic">
               {t('catalog.subtitle')}
             </p>
           </div>
@@ -41,7 +38,7 @@ export default function ProductCatalog() {
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Categories Sidebar */}
           <aside className="w-full lg:w-64 space-y-8">
-            <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 sticky top-24">
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 sticky top-24">
               <h3 className="font-display font-bold text-lg mb-6 flex items-center gap-2">
                 <span className="w-1.5 h-6 bg-primary rounded-full"></span>{' '}
                 {lang === 'ar' ? 'الأقسام' : 'Categories'}
@@ -54,7 +51,7 @@ export default function ProductCatalog() {
                     className={`w-full ${lang === 'ar' ? 'text-right' : 'text-left'} px-4 py-3 rounded-xl font-bold transition-all flex justify-between items-center ${
                       activeCategory === cat.id
                         ? 'bg-primary text-white shadow-lg shadow-primary/25'
-                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'
+                        : 'text-slate-600 hover:bg-slate-50'
                     }`}
                   >
                     <span>{lang === 'ar' ? cat.nameAr : cat.nameEn}</span>
@@ -81,24 +78,24 @@ export default function ProductCatalog() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.3 }}
-                    className="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all border border-slate-100 dark:border-slate-800 group"
+                    className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all border border-slate-100 group"
                   >
-                    <div className="aspect-square bg-slate-50 dark:bg-slate-800/50 p-10 relative overflow-hidden">
+                    <div className="aspect-square bg-slate-50 p-10 relative overflow-hidden">
                       <img
                         src={product.image}
                         alt={product.name}
                         className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                       />
-                      <div className="absolute top-4 right-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-black tracking-widest text-primary border border-primary/20">
+                      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-black tracking-widest text-primary border border-primary/20">
                         {product.sizes[0]}
                       </div>
                     </div>
 
                     <div className="p-8">
-                      <h3 className="font-display font-bold text-xl mb-2 text-slate-900 dark:text-white">
+                      <h3 className="font-display font-bold text-xl mb-2 text-slate-900">
                         {lang === 'ar' ? product.name : product.nameEn}
                       </h3>
-                      <p className="text-slate-500 dark:text-slate-400 text-sm mb-6 line-clamp-2 leading-relaxed">
+                      <p className="text-slate-500 text-sm mb-6 line-clamp-2 leading-relaxed">
                         {product.description}
                       </p>
                       <div className="flex items-center justify-between">
@@ -110,7 +107,7 @@ export default function ProductCatalog() {
                           className={`flex items-center justify-center p-3 rounded-2xl transition-all ${
                             addedItems[product.id]
                               ? 'bg-green-500 text-white'
-                              : 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-primary dark:hover:bg-primary dark:hover:text-white'
+                              : 'bg-slate-900 text-white hover:bg-primary'
                           }`}
                         >
                           {addedItems[product.id] ? (
