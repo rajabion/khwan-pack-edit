@@ -66,6 +66,16 @@ export const translations = {
       instant: 'تأكيد فوري',
       response: 'رد خلال ٢٤ ساعة',
     },
+    values: {
+      v1_title: 'جودة استثنائية',
+      v1_desc: 'نستخدم أفضل المواد الخام لضمان منتج يليق بهويتك.',
+      v2_title: 'سرعة التنفيذ',
+      v2_desc: 'نلتزم بمواعيد التسليم لضمان استمرارية أعمالكم.',
+      v3_title: 'تصميم إبداعي',
+      v3_desc: 'فريقنا يحول أفكارك إلى واقع بصري يبهر عملاءك.',
+      v4_title: 'حلول ذكية',
+      v4_desc: 'تغليف وظيفي يقلل التكاليف ويزيد الكفاءة.',
+    },
     contact: {
       subtitle: 'حنا بالخدمة دائماً',
       name: 'الاسم الكريم',
@@ -181,6 +191,20 @@ export const translations = {
         'All sessions are conducted via video call. Choose your focus area below.',
       instant: 'Instant Confirmation',
       response: 'Response within 24h',
+    },
+    values: {
+      v1_title: 'Exceptional Quality',
+      v1_desc:
+        'We use the finest raw materials to ensure a product that matches your identity.',
+      v2_title: 'Fast Execution',
+      v2_desc:
+        'We commit to delivery deadlines to ensure your business continuity.',
+      v3_title: 'Creative Design',
+      v3_desc:
+        'Our team turns your ideas into a visual reality that wows your customers.',
+      v4_title: 'Smart Solutions',
+      v4_desc:
+        'Functional packaging that reduces costs and increases efficiency.',
     },
     contact: {
       subtitle: 'WE ARE ALWAYS HERE TO HELP',

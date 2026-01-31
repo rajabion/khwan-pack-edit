@@ -5,6 +5,7 @@ import ServicesSection from '../components/ServicesSection';
 import ConfiguratorSection from '../components/ConfiguratorSection';
 import ProductCatalog from '../components/ProductCatalog';
 import ContactSection from '../components/ContactSection';
+import BrandValuesSection from '../components/BrandValuesSection';
 import { useLang } from '../context/LanguageContext';
 
 export default function Home() {
@@ -54,6 +55,8 @@ export default function Home() {
       <ProductCatalog />
 
       <ContactSection />
+
+      <BrandValuesSection />
     </main>
   );
 }
