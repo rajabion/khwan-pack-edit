@@ -1,95 +1,82 @@
-import React, { useState } from 'react';
-import { Menu, X, ShoppingBag } from 'lucide-react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
 import { useLang } from '../context/LanguageContext';
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { cartCount } = useCart();
   const { lang, toggleLang, t } = useLang();
 
-  const navItems = [
-    { name: t('nav.home'), path: '/' },
-    { name: t('nav.catalog'), path: '/#catalog' },
-    { name: t('nav.portfolio'), path: '/#portfolio' },
-    { name: t('nav.book'), path: '/#book' },
-  ];
+  const toggleTheme = () => document.documentElement.classList.toggle('dark');
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 transition-all duration-300">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="glass mt-4 rounded-3xl px-6 py-3 flex items-center justify-between border border-white/40">
-          {/* Logo */}
-          <Link
-            to="/"
-            className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-blue-900 tracking-tighter"
-          >
-            KhwanPack
+    <header className="fixed w-full z-50 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
+          <Link to="/" className="flex items-center gap-4 group">
+            <div className="flex flex-col">
+              <span className="text-2xl font-bold tracking-tighter text-slate-900 dark:text-white leading-none group-hover:text-primary transition-colors">
+                KHWAN PACK
+              </span>
+              <span
+                className="text-xl font-bold font-arabic text-primary leading-none"
+                dir="rtl"
+              >
+                خوان باك
+              </span>
+            </div>
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex gap-8">
-            {navItems.map(item => (
-              <a
-                key={item.name}
-                href={item.path}
-                className="text-sm font-bold text-slate-700 hover:text-blue-700 transition-colors"
+          <nav className="hidden md:flex items-center gap-8">
+            <Link
+              className="text-sm font-bold hover:text-primary transition-colors"
+              to="/"
+            >
+              {t('nav.home')}
+            </Link>
+            <a
+              className="text-sm font-bold hover:text-primary transition-colors cursor-pointer"
+              onClick={() =>
+                document
+                  .getElementById('catalog')
+                  ?.scrollIntoView({ behavior: 'smooth' })
+              }
+            >
+              {t('nav.catalog')}
+            </a>
+
+            <div className="flex items-center gap-4 ml-4 pl-4 border-l border-slate-200 dark:border-slate-800">
+              <button
+                onClick={toggleLang}
+                className="px-3 py-1 border border-primary rounded text-xs font-bold hover:bg-primary hover:text-white transition-all text-primary"
               >
-                {item.name}
+                {lang === 'ar' ? 'EN' : 'AR'}
+              </button>
+
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              >
+                <span className="material-symbols-outlined dark:hidden text-slate-600">
+                  dark_mode
+                </span>
+                <span className="material-symbols-outlined hidden dark:block text-brand-yellow">
+                  light_mode
+                </span>
+              </button>
+
+              <a
+                className="px-5 py-2.5 bg-primary text-white text-sm font-bold rounded hover:bg-opacity-90 shadow-lg shadow-primary/20 transition-all active:scale-95"
+                href="#contact"
+              >
+                {t('nav.book')}
               </a>
-            ))}
+            </div>
           </nav>
 
-          {/* Actions */}
-          <div className="flex items-center gap-4">
-            <button
-              onClick={toggleLang}
-              className="text-xs font-extrabold px-4 py-2 rounded-xl bg-blue-50 text-blue-700 border border-blue-100 hover:bg-blue-100 transition-colors"
-            >
-              {lang === 'ar' ? 'English' : 'عربي'}
-            </button>
-
-            <Link
-              to="/quote-review"
-              className="relative p-2 text-slate-700 hover:text-blue-700 transition-colors"
-            >
-              <ShoppingBag size={22} />
-              {cartCount > 0 && (
-                <span className="absolute top-0 end-0 h-5 w-5 bg-red-600 rounded-full text-[10px] flex items-center justify-center text-white font-extrabold shadow-lg">
-                  {cartCount}
-                </span>
-              )}
-            </Link>
-
-            {/* Mobile Menu Toggle */}
-            <button
-              className="md:hidden p-2 text-slate-700"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+          <button className="md:hidden p-2 text-slate-600 dark:text-slate-400">
+            <span className="material-icons">menu</span>
+          </button>
         </div>
       </div>
-
-      {/* Mobile Nav */}
-      {isMenuOpen && (
-        <div className="absolute top-full inset-x-0 p-4 md:hidden">
-          <div className="glass-card rounded-xl p-4 flex flex-col gap-4">
-            {navItems.map(item => (
-              <Link
-                key={item.name}
-                to={item.path}
-                className="text-base font-medium text-slate-700 py-2 border-b border-white/50 last:border-0"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
     </header>
   );
 }

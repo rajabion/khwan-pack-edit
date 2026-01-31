@@ -1,33 +1,23 @@
-import React, { Suspense } from 'react';
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import RibbonBackground from '../components/RibbonBackground';
 import FloatingCart from '../components/FloatingCart';
-import { Outlet } from 'react-router-dom';
+import { useLang } from '../context/LanguageContext';
 
 export default function MainLayout() {
+  const { lang } = useLang();
+
   return (
-    <div className="min-h-screen relative bg-slate-50 text-slate-900 flex flex-col overflow-x-hidden">
-      {/* Infinite Folded Ribbon Background */}
-      <RibbonBackground />
-
+    <div
+      className={`min-h-screen transition-colors duration-300 ${lang === 'ar' ? 'font-arabic' : 'font-body'}`}
+      dir={lang === 'ar' ? 'rtl' : 'ltr'}
+    >
       <Header />
-
-      <main className="flex-grow z-10 pt-20">
-        <Suspense
-          fallback={
-            <div className="h-screen flex items-center justify-center">
-              Loading Content...
-            </div>
-          }
-        >
-          <Outlet />
-        </Suspense>
-      </main>
-
+      <div className="pt-0">
+        <Outlet />
+      </div>
       <Footer />
-
-      {/* Lead Capture Shortcut */}
       <FloatingCart />
     </div>
   );

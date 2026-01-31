@@ -1,46 +1,72 @@
 @import 'tailwindcss';
 
-html,
-body,
-#root {
-  width: 100%;
-  min-height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: 'Almarai', sans-serif;
-  background-color: #ffffff;
+@theme {
+  --color-primary: #d82d64;
+  --color-secondary: #4b6191;
+  --color-accent: #f2b824;
+  --color-orange: #e67e33;
+  --color-purple: #8e5174;
+  --color-brand-blue: #5b6d97;
+  --color-brand-yellow: #f0b418;
+  --color-brand-orange: #e6843c;
+  --color-brand-purple: #8e5171;
+  --color-background-light: #f8f9fa;
+  --color-background-dark: #1a1a1a;
+  --color-dark-grey: #3d3d3d;
+
+  --font-display: 'Outfit', 'Noto Sans Arabic', 'Cairo', sans-serif;
+  --font-arabic: 'Noto Sans Arabic', 'Cairo', sans-serif;
+  --font-body: 'Inter', 'Cairo', sans-serif;
+
+  --radius-default: 4px;
+  --radius-md: 0.375rem;
 }
 
-/* Glassmorphism Utilities */
-.glass {
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+@layer base {
+  body {
+    background-color: var(--color-background-light);
+    color: #1e293b; /* slate-800 */
+    font-family: var(--font-body);
+  }
+
+  .dark body {
+    background-color: var(--color-background-dark);
+    color: #f1f5f9; /* slate-100 */
+  }
 }
 
-.glass-card {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+.brand-pattern {
+  background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+.dark .brand-pattern {
+  background-image: radial-gradient(#374151 1px, transparent 1px);
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
+.sidebar-gradient {
+  background: linear-gradient(180deg, #d63366 0%, #8e5171 100%);
 }
 
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
+[dir='rtl'] .flip-rtl {
+  transform: scaleX(-1);
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+.diagonal-bg {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+}
+
+/* Custom scrollbar for dark mode */
+.dark ::-webkit-scrollbar {
+  width: 10px;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #3d3d3d;
+  border-radius: 5px;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #4b6191;
 }
