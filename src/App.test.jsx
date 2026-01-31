@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import App from './App';
 
+// Smoke test to verify CI/CD pipeline
 describe('App', () => {
   it('renders without crashing', () => {
     // This is a basic smoke test.
