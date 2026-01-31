@@ -1,8 +1,10 @@
 import React, { Suspense } from 'react';
 import HeroSection from '../components/HeroSection';
-import LogoPhilosophy from '../components/LogoPhilosophy';
+import AboutSection from '../components/AboutSection';
+import ServicesSection from '../components/ServicesSection';
 import ConfiguratorSection from '../components/ConfiguratorSection';
 import ProductCatalog from '../components/ProductCatalog';
+import ContactSection from '../components/ContactSection';
 import { useLang } from '../context/LanguageContext';
 
 export default function Home() {
@@ -12,7 +14,9 @@ export default function Home() {
     <main className="bg-background-light overflow-x-hidden">
       <HeroSection />
 
-      <LogoPhilosophy />
+      <AboutSection />
+
+      <ServicesSection />
 
       <section id="custom" className="py-24 relative overflow-hidden bg-white">
         <div className="absolute top-0 left-0 w-full h-full brand-pattern opacity-30 -z-10"></div>
@@ -21,17 +25,15 @@ export default function Home() {
             <div
               className={`max-w-2xl ${lang === 'ar' ? 'text-right' : 'text-left'}`}
             >
+              <h2 className="text-sm font-black text-primary uppercase tracking-[0.2em] mb-4">
+                {t('configurator.preview_label')}
+              </h2>
               <h2 className="text-4xl lg:text-5xl font-display font-black text-slate-900 mb-4">
                 {t('configurator.title')}
               </h2>
               <p className="text-lg text-slate-600 font-arabic leading-relaxed">
                 {t('configurator.desc')}
               </p>
-            </div>
-            <div className="flex gap-4">
-              <div className="w-16 h-1 bg-primary rounded-full"></div>
-              <div className="w-8 h-1 bg-secondary rounded-full"></div>
-              <div className="w-4 h-1 bg-accent rounded-full"></div>
             </div>
           </div>
 
@@ -50,6 +52,8 @@ export default function Home() {
       </section>
 
       <ProductCatalog />
+
+      <ContactSection />
     </main>
   );
 }

@@ -19,7 +19,7 @@ export const translations = {
       title: 'حنا.. أكثر من مجرد مصنع',
       subtitle: 'ترانا مبدعين',
       desc1:
-        'في <span className="text-blue-700 font-extrabold">خوان باك</span>، القضية مو بس كوب وعلبة. حنا ذراعك الإبداعي اللي يفهم سوقك ويضبطك. نجمع بين فن التصميم وقوة التصنيع عشان نطلع بنتيجة.. باختصار: <span className="font-extrabold">تجمّل!</span>',
+        'في <span className="text-primary font-extrabold">خوان باك</span>، القضية مو بس كوب وعلبة. حنا ذراعك الإبداعي اللي يفهم سوقك ويضبطك. نجمع بين فن التصميم وقوة التصنيع عشان نطلع بنتيجة.. باختصار: <span className="font-extrabold">تجمّل!</span>',
       quote: '"ودك بمنتج يبيض الوجه قدام ضيوفك؟.. وصلت خير."',
       desc2:
         'نهتم بأدق التفاصيل: ملمس الكوب، وضوح الألوان، وحتى جودة الغطاء. لأننا نعرف إن التغليف هو "سفيرك الصامت" عند العميل.',
@@ -37,7 +37,7 @@ export const translations = {
     },
     services: {
       title: 'خدماتنا.. مفصلة عليك',
-      subtitle: 'OUR SERVICES',
+      subtitle: 'حلولنا المتكاملة',
       s1_title: 'هويتك.. لعبتنا',
       s1_desc:
         'عندك فكرة؟ حنا نحولها لواقع ملموس. فريقنا الإبداعي يضبطك بتصاميم (Nfaslha Tafseel) تميّزك بالسوق.',
@@ -47,6 +47,16 @@ export const translations = {
       s3_title: 'مستعجل؟.. جاهزين',
       s3_desc:
         'لأصحاب المشاريع الناشئة والمستعجلين.. عندنا تشكيلة جاهزة فاخرة (بدون طباعة) تفك أزمة.',
+    },
+    contact: {
+      title: 'تواصل معنا',
+      subtitle: 'حنا بالخدمة دائماً',
+      name: 'الاسم الكريم',
+      email: 'البريد الإلكتروني',
+      subject: 'الموضوع',
+      message: 'كيف نقدر نخدمك؟',
+      send: 'أرسل الطلب',
+      info: 'معلومات التواصل',
     },
     catalog: {
       title: 'منتجاتنا.. اللي تجمّل',
@@ -59,7 +69,7 @@ export const translations = {
     review: {
       success_title: 'وصل طلبك.. وازهل الباقي!',
       success_desc:
-        'فريقنا في <span className="text-blue-700 font-extrabold">خوان باك</span> استلم المسودة. بنجهز لك عرض سعر يطيب خاطرك، ونتواصل معك خلال ٢٤ ساعة.',
+        'فريقنا في <span className="text-primary font-extrabold">خوان باك</span> استلم المسودة. بنجهز لك عرض سعر يطيب خاطرك، ونتواصل معك خلال ٢٤ ساعة.',
       back_home: 'العودة للرئيسية',
       contact_title: 'بيانات التواصل',
       name_label: 'الاسم الكريم',
@@ -106,7 +116,7 @@ export const translations = {
       title: 'We Are.. More Than Just A Factory',
       subtitle: 'THE CREATIVE UNIT',
       desc1:
-        'At <span className="text-blue-700 font-extrabold">Khwan Pack</span>, it\'s not just about a cup or a box. We are your creative arm that understands your market. We blend design art with manufacturing power to deliver a result that is simply.. <span className="font-extrabold">Impeccable!</span>',
+        'At <span className="text-primary font-extrabold">Khwan Pack</span>, it\'s not just about a cup or a box. We are your creative arm that understands your market. We blend design art with manufacturing power to deliver a result that is simply.. <span className="font-extrabold">Impeccable!</span>',
       quote:
         '"Want a product that stands out to your guests?.. You\'ve arrived."',
       desc2:
@@ -124,8 +134,8 @@ export const translations = {
       preview_label: 'Interactive Preview',
     },
     services: {
-      title: 'Services.. Tailored For You',
-      subtitle: 'OUR SERVICES',
+      title: 'Our Services.. Tailored For You',
+      subtitle: 'COMPLETE SOLUTIONS',
       s1_title: 'Your Identity.. Our Playground',
       s1_desc:
         'Have an idea? We turn it into tangible reality. Our creative team sets you up with designs (Nfaslha Tafseel) that distinguish you in the market.',
@@ -135,6 +145,16 @@ export const translations = {
       s3_title: "In a Rush?.. We're Ready",
       s3_desc:
         'For startups and those in a hurry.. we have a luxury ready-made collection (unprinted) to save the day.',
+    },
+    contact: {
+      title: 'Contact Us',
+      subtitle: 'WE ARE ALWAYS HERE TO HELP',
+      name: 'Full Name',
+      email: 'Email Address',
+      subject: 'Subject',
+      message: 'How can we help?',
+      send: 'Send Request',
+      info: 'Contact Information',
     },
     catalog: {
       title: 'Our Collection.. That Inspires',
@@ -147,7 +167,7 @@ export const translations = {
     review: {
       success_title: "Request Received.. We've Got You!",
       success_desc:
-        'Our team at <span className="text-blue-700 font-extrabold">Khwan Pack</span> has received your draft. We\'ll prepare a quote that fits your needs and reach out within 24 hours.',
+        'Our team at <span className="text-primary font-extrabold">Khwan Pack</span> has received your draft. We\'ll prepare a quote that fits your needs and reach out within 24 hours.',
       back_home: 'Back to Home',
       contact_title: 'Contact Details',
       name_label: 'Full Name',

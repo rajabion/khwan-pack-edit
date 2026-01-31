@@ -5,6 +5,10 @@ import { useLang } from '../context/LanguageContext';
 export default function Header() {
   const { lang, toggleLang, t } = useLang();
 
+  const scrollTo = id => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <header className="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,16 +34,24 @@ export default function Header() {
             >
               {t('nav.home')}
             </Link>
-            <a
+            <button
+              onClick={() => scrollTo('about')}
               className="text-sm font-bold hover:text-primary transition-colors cursor-pointer"
-              onClick={() =>
-                document
-                  .getElementById('catalog')
-                  ?.scrollIntoView({ behavior: 'smooth' })
-              }
+            >
+              {t('footer.about')}
+            </button>
+            <button
+              onClick={() => scrollTo('services')}
+              className="text-sm font-bold hover:text-primary transition-colors cursor-pointer"
+            >
+              {t('services.title')}
+            </button>
+            <button
+              onClick={() => scrollTo('catalog')}
+              className="text-sm font-bold hover:text-primary transition-colors cursor-pointer"
             >
               {t('nav.catalog')}
-            </a>
+            </button>
 
             <div className="flex items-center gap-4 ml-4 pl-4 border-l border-slate-200">
               <button
@@ -49,12 +61,12 @@ export default function Header() {
                 {lang === 'ar' ? 'EN' : 'AR'}
               </button>
 
-              <a
+              <button
                 className="px-5 py-2.5 bg-primary text-white text-sm font-bold rounded hover:bg-opacity-90 shadow-lg shadow-primary/20 transition-all active:scale-95"
-                href="#contact"
+                onClick={() => scrollTo('contact')}
               >
                 {t('nav.book')}
-              </a>
+              </button>
             </div>
           </nav>
 

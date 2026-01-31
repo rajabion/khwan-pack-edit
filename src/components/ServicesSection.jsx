@@ -1,47 +1,41 @@
 import React from 'react';
 import { useLang } from '../context/LanguageContext';
 
-export default function LogoPhilosophy() {
-  const { lang } = useLang();
+export default function ServicesSection() {
+  const { lang, t } = useLang();
 
   const cards = [
     {
       icon: 'auto_awesome',
       color: 'bg-accent',
       iconColor: 'text-dark-grey',
-      titleEn: 'Creative Solutions',
-      titleAr: 'حلول إبداعية',
-      descEn:
-        'Innovative designs that translate brand values into visual reality.',
-      descAr: 'تصاميم مبتكرة تترجم قيم العلامة التجارية إلى واقع بصري ملموس.',
+      title: t('services.s1_title'),
+      desc: t('services.s1_desc'),
       hoverBorder: 'hover:border-accent',
     },
     {
-      icon: 'category',
+      icon: 'print',
       color: 'bg-primary',
       iconColor: 'text-white',
-      titleEn: 'Smart Packaging',
-      titleAr: 'تغليف ذكي',
-      descEn:
-        'Functional and aesthetic packaging tailored for your product needs.',
-      descAr: 'تغليف وظيفي وجمالي مصمم خصيصاً ليتناسب مع احتياجات منتجك.',
+      title: t('services.s2_title'),
+      desc: t('services.s2_desc'),
       hoverBorder: 'hover:border-primary',
     },
     {
-      icon: 'print',
+      icon: 'speed',
       color: 'bg-secondary',
       iconColor: 'text-white',
-      titleEn: 'High-End Printing',
-      titleAr: 'طباعة فاخرة',
-      descEn:
-        'Utilizing the latest CMYK and Pantone technologies for precision.',
-      descAr: 'نستخدم أحدث تقنيات CMYK وبانتون لضمان دقة الألوان والنتائج.',
+      title: t('services.s3_title'),
+      desc: t('services.s3_desc'),
       hoverBorder: 'hover:border-secondary',
     },
   ];
 
   return (
-    <section className="py-24 bg-dark-grey text-white relative overflow-hidden">
+    <section
+      id="services"
+      className="py-24 bg-dark-grey text-white relative overflow-hidden"
+    >
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-primary transform skew-x-12 translate-x-1/2"></div>
         <div className="absolute bottom-0 left-0 w-1/2 h-full bg-secondary transform -skew-x-12 -translate-x-1/2"></div>
@@ -52,25 +46,16 @@ export default function LogoPhilosophy() {
           <div
             className={`col-span-1 ${lang === 'ar' ? 'border-r-4 pr-6 text-right' : 'border-l-4 pl-6 text-left'} border-primary`}
           >
+            <h2 className="text-sm font-black text-primary uppercase tracking-[0.2em] mb-4">
+              {t('services.subtitle')}
+            </h2>
             <h3 className="text-4xl font-bold mb-4 font-display leading-tight">
-              {lang === 'ar' ? (
-                <>
-                  فلسفة
-                  <br />
-                  الشعار
-                </>
-              ) : (
-                <>
-                  Logo
-                  <br />
-                  Philosophy
-                </>
-              )}
+              {t('services.title')}
             </h3>
             <p className="text-slate-400 text-sm font-arabic">
               {lang === 'ar'
-                ? 'فلسفة الشعار وأبعاده الفنية'
-                : 'Philosophy and artistic dimensions of the logo'}
+                ? 'حلول إبداعية متكاملة لتنمية علامتك التجارية'
+                : 'Integrated creative solutions to grow your brand'}
             </p>
           </div>
 
@@ -87,12 +72,12 @@ export default function LogoPhilosophy() {
                 </span>
               </div>
               <h4 className="text-xl font-bold mb-3 font-display">
-                {lang === 'ar' ? card.titleAr : card.titleEn}
+                {card.title}
               </h4>
               <p
                 className={`text-slate-400 text-sm leading-relaxed ${lang === 'ar' ? 'font-arabic' : ''}`}
               >
-                {lang === 'ar' ? card.descAr : card.descEn}
+                {card.desc}
               </p>
             </div>
           ))}
