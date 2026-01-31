@@ -5,17 +5,18 @@ import { useLang } from '../context/LanguageContext';
 export default function Footer() {
   const { lang, t } = useLang();
 
+  const officeLocationUrl = 'https://maps.app.goo.gl/N4rQGjPBLwR3zsgr5';
+
   return (
     <footer className="bg-dark-grey text-white pt-20 pb-10" id="footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main Footer Content */}
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           {/* Brand & Description */}
           <div className="col-span-1 md:col-span-1">
             <div
               className={`flex flex-col mb-8 ${lang === 'ar' ? 'items-end' : 'items-start'}`}
             >
-              <span className="text-3xl font-bold tracking-tighter text-white">
+              <span className="text-3xl font-bold tracking-tighter text-white uppercase">
                 KHWAN PACK
               </span>
               <span
@@ -35,13 +36,13 @@ export default function Footer() {
             >
               <a
                 href="#"
-                className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
+                className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary transition-all active:scale-90"
               >
                 <i className="fab fa-instagram"></i>
               </a>
               <a
                 href="#"
-                className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
+                className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary transition-all active:scale-90"
               >
                 <i className="fab fa-whatsapp"></i>
               </a>
@@ -106,33 +107,53 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Location Map */}
+          {/* Premium Location Gadget */}
           <div className="col-span-1">
             <h4 className="font-bold text-lg mb-6 uppercase tracking-widest text-accent">
               {lang === 'ar' ? 'موقعنا' : 'Our Location'}
             </h4>
-            <div className="rounded-2xl overflow-hidden border border-white/10 grayscale hover:grayscale-0 transition-all duration-500 group shadow-2xl h-[120px]">
-              <iframe
-                title="Office Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.583412323456!2d46.7032!3d24.7012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f033333333333%3A0x3333333333333333!2sEbttikar%20Technology%20Co.%20Ltd.!5e0!3m2!1sen!2ssa!4v1700000000000!5m2!1sen!2ssa"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="opacity-60 group-hover:opacity-100 transition-opacity"
-              ></iframe>
-            </div>
             <a
-              href="https://maps.app.goo.gl/N4rQGjPBLwR3zsgr5"
+              href={officeLocationUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-2 text-xs font-bold text-accent hover:text-white transition-colors uppercase tracking-widest"
+              className="group relative block rounded-2xl overflow-hidden shadow-2xl border border-white/5 transition-all duration-500 hover:-translate-y-2 hover:shadow-primary/20"
             >
-              <span>{lang === 'ar' ? 'افتح في الخرائط' : 'Open in Maps'}</span>
-              <span className="material-icons text-xs">open_in_new</span>
+              {/* Minimalist Map Background (Blurred/Abstracted for look) */}
+              <div className="h-[140px] w-full bg-slate-800 relative">
+                <div className="absolute inset-0 bg-primary/10 mix-blend-color group-hover:bg-transparent transition-colors duration-500"></div>
+                <img
+                  src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=400"
+                  alt="Map"
+                  className="w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity"
+                />
+                {/* Floating Marker Icon */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative">
+                    <span className="material-icons text-4xl text-primary animate-bounce">
+                      location_on
+                    </span>
+                    <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4 h-1 bg-black/40 rounded-full blur-[2px]"></div>
+                  </div>
+                </div>
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60"></div>
+                <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/80">
+                    Riyadh, KSA
+                  </span>
+                  <div className="bg-white/10 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold text-white border border-white/20">
+                    {lang === 'ar' ? 'فتح الخريطة' : 'Open Map'}
+                  </div>
+                </div>
+              </div>
             </a>
+            <p className="mt-4 text-[10px] text-slate-500 font-bold uppercase tracking-widest leading-relaxed">
+              Ebttikar Technology Co. Ltd.
+              <br />
+              {lang === 'ar'
+                ? 'المقر الرئيسي - الرياض'
+                : 'HQ - Riyadh, Saudi Arabia'}
+            </p>
           </div>
         </div>
 
