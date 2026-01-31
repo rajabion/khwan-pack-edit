@@ -5,63 +5,63 @@ import { useLang } from '../context/LanguageContext';
 export default function Footer() {
   const { lang, t } = useLang();
 
-  // The actual location provided: https://maps.app.goo.gl/N4rQGjPBLwR3zsgr5
   const officeLocationUrl = 'https://maps.app.goo.gl/N4rQGjPBLwR3zsgr5';
-
-  // Encoded embed URL for the specific Khwan Pack location coordinates
   const mapEmbedUrl =
     'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3624.582844123214!2d46.703211!3d24.701234!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f032a39764047%3A0xed0c9ed91c59a43c!2z2K7ZiNin2YYg2KjYp9mD!5e0!3m2!1sen!2ssa!4v1700000000000!5m2!1sen!2ssa';
 
   return (
-    <footer className="bg-dark-grey text-white pt-20 pb-10" id="footer">
+    <footer className="bg-dark-grey text-white pt-32 pb-12" id="footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-12 mb-16">
-          {/* Brand & Description */}
-          <div className="col-span-1 md:col-span-1">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-16 mb-24">
+          {/* Brand Column */}
+          <div className="col-span-1">
             <div
-              className={`flex flex-col mb-8 ${lang === 'ar' ? 'items-end' : 'items-start'}`}
+              className={`flex flex-col mb-10 ${lang === 'ar' ? 'items-end' : 'items-start'}`}
             >
-              <span className="text-3xl font-bold tracking-tighter text-white uppercase font-display">
+              <span className="text-4xl font-black tracking-tighter text-white uppercase font-display leading-none mb-2">
                 KHWAN PACK
               </span>
               <span
-                className="text-2xl font-bold font-arabic text-primary leading-none"
+                className="text-3xl font-black font-arabic text-primary leading-none"
                 dir="rtl"
               >
                 خوان باك
               </span>
             </div>
             <p
-              className={`text-slate-400 text-sm mb-8 leading-relaxed ${lang === 'ar' ? 'text-right font-arabic' : 'text-left'}`}
+              className={`text-slate-400 text-lg mb-10 leading-relaxed ${lang === 'ar' ? 'text-right font-arabic' : 'text-left'} font-medium`}
             >
               {t('footer.desc')}
             </p>
             <div
-              className={`flex gap-4 ${lang === 'ar' ? 'justify-end' : 'justify-start'}`}
+              className={`flex gap-6 ${lang === 'ar' ? 'justify-end' : 'justify-start'}`}
             >
               <a
                 href="#"
-                className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary transition-all active:scale-90"
+                className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-primary transition-all duration-500 hover:-translate-y-1"
               >
-                <i className="fab fa-instagram"></i>
+                <i className="fab fa-instagram text-xl"></i>
               </a>
               <a
                 href="#"
-                className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary transition-all active:scale-90"
+                className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center hover:bg-primary transition-all duration-500 hover:-translate-y-1"
               >
-                <i className="fab fa-whatsapp"></i>
+                <i className="fab fa-whatsapp text-xl"></i>
               </a>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Navigation Column */}
           <div className={lang === 'ar' ? 'text-right' : 'text-left'}>
-            <h4 className="font-bold text-lg mb-6 uppercase tracking-widest text-primary">
+            <h4 className="text-xs font-black uppercase tracking-[0.4em] text-primary mb-10">
               {t('footer.links_title')}
             </h4>
-            <ul className="space-y-4 text-slate-400 text-sm font-bold">
+            <ul className="space-y-6">
               <li>
-                <Link to="/" className="hover:text-white transition-colors">
+                <Link
+                  to="/"
+                  className="text-slate-400 hover:text-white transition-colors text-lg font-bold"
+                >
                   {t('nav.home')}
                 </Link>
               </li>
@@ -72,53 +72,72 @@ export default function Footer() {
                       .getElementById('catalog')
                       ?.scrollIntoView({ behavior: 'smooth' })
                   }
-                  className="hover:text-white transition-colors cursor-pointer"
+                  className="text-slate-400 hover:text-white transition-colors text-lg font-bold"
                 >
                   {t('nav.catalog')}
                 </button>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a
+                  href="#"
+                  className="text-slate-400 hover:text-white transition-colors text-lg font-bold"
+                >
                   {t('footer.guide')}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-slate-400 hover:text-white transition-colors text-lg font-bold"
+                >
+                  {t('footer.faq')}
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact Column */}
           <div className={lang === 'ar' ? 'text-right' : 'text-left'}>
-            <h4 className="font-bold text-lg mb-6 uppercase tracking-widest text-secondary">
+            <h4 className="text-xs font-black uppercase tracking-[0.4em] text-secondary mb-10">
               {t('footer.contact')}
             </h4>
-            <ul className="space-y-4 text-slate-400 text-sm">
+            <ul className="space-y-8">
               <li
-                className={`flex items-start gap-3 ${lang === 'ar' ? 'flex-row-reverse text-right' : ''}`}
+                className={`flex items-start gap-5 ${lang === 'ar' ? 'flex-row-reverse text-right' : ''}`}
               >
-                <span className="material-icons text-primary text-sm mt-1">
-                  location_on
-                </span>
-                <span className={lang === 'ar' ? 'font-arabic' : ''}>
+                <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <span className="material-icons-round text-primary">
+                    location_on
+                  </span>
+                </div>
+                <span
+                  className={`text-slate-400 text-lg leading-relaxed ${lang === 'ar' ? 'font-arabic' : ''} font-bold`}
+                >
                   {t('footer.location')}
                 </span>
               </li>
               <li
-                className={`flex items-start gap-3 ${lang === 'ar' ? 'flex-row-reverse text-right' : ''}`}
+                className={`flex items-start gap-5 ${lang === 'ar' ? 'flex-row-reverse text-right' : ''}`}
               >
-                <span className="material-icons text-primary text-sm mt-1">
-                  phone
+                <div className="w-10 h-10 bg-secondary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <span className="material-icons-round text-secondary">
+                    phone
+                  </span>
+                </div>
+                <span className="text-white text-lg font-black tracking-wider">
+                  +966 50 000 0000
                 </span>
-                <span className="font-bold">+966 50 000 0000</span>
               </li>
             </ul>
           </div>
 
-          {/* Interactive Mini Map */}
+          {/* Map Column */}
           <div className="col-span-1">
-            <h4 className="font-bold text-lg mb-6 uppercase tracking-widest text-accent font-display">
+            <h4 className="text-xs font-black uppercase tracking-[0.4em] text-accent mb-10">
               {lang === 'ar' ? 'موقعنا' : 'Find Us'}
             </h4>
             <div className="relative group">
-              <div className="rounded-2xl overflow-hidden shadow-xl border border-white/10 h-[160px] w-full transition-transform duration-500 hover:scale-[1.02]">
+              <div className="rounded-[32px] overflow-hidden shadow-2xl border border-white/10 h-[200px] w-full transition-all duration-700 group-hover:border-accent/50 group-hover:scale-[1.02]">
                 <iframe
                   title="Khwan Pack Location"
                   src={mapEmbedUrl}
@@ -127,25 +146,25 @@ export default function Footer() {
                   style={{ border: 0 }}
                   allowFullScreen=""
                   loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="grayscale-[0.5] contrast-[1.1] group-hover:grayscale-0 transition-all duration-500"
+                  className="grayscale-[0.8] contrast-[1.2] group-hover:grayscale-0 transition-all duration-700"
                 ></iframe>
-                {/* Invisible Click Overlay to open full map */}
                 <a
                   href={officeLocationUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="absolute inset-0 z-10 cursor-pointer"
-                  aria-label="Open Khwan Pack on Google Maps"
+                  className="absolute inset-0 z-10"
                 ></a>
               </div>
               <div
-                className={`mt-4 flex flex-col ${lang === 'ar' ? 'items-end text-right' : 'items-start text-left'}`}
+                className={`mt-6 flex flex-col ${lang === 'ar' ? 'items-end text-right' : 'items-start text-left'}`}
               >
-                <p className="text-[11px] font-black text-white/90 uppercase tracking-widest leading-none mb-1">
-                  KHWAN PACK
-                </p>
-                <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="w-2 h-2 bg-accent rounded-full animate-ping"></span>
+                  <p className="text-[11px] font-black text-white uppercase tracking-widest leading-none">
+                    KHWAN PACK HQ
+                  </p>
+                </div>
+                <p className="text-xs text-slate-500 font-bold uppercase tracking-widest">
                   {lang === 'ar'
                     ? 'الرياض، المملكة العربية السعودية'
                     : 'Riyadh, Saudi Arabia'}
@@ -155,16 +174,22 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-[10px] font-black uppercase tracking-[0.2em]">
-          <p>
+        {/* Legal Bar */}
+        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+          <p className="text-slate-500 text-[10px] font-black uppercase tracking-[0.3em]">
             © {new Date().getFullYear()} KHWAN PACK. {t('footer.rights')}
           </p>
-          <div className="flex gap-8">
-            <a href="#" className="hover:text-white transition-all">
+          <div className="flex gap-10">
+            <a
+              href="#"
+              className="text-slate-500 hover:text-white text-[10px] font-black uppercase tracking-[0.3em] transition-colors"
+            >
               Privacy Policy
             </a>
-            <a href="#" className="hover:text-white transition-all">
+            <a
+              href="#"
+              className="text-slate-500 hover:text-white text-[10px] font-black uppercase tracking-[0.3em] transition-colors"
+            >
               Terms of Service
             </a>
           </div>

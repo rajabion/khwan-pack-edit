@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700&family=Cairo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Round');
+
 @import 'tailwindcss';
 
 @theme {
@@ -14,8 +19,8 @@
   --color-background-dark: #1a1a1a;
   --color-dark-grey: #3d3d3d;
 
-  --font-display: 'Outfit', 'Noto Sans Arabic', 'Cairo', sans-serif;
-  --font-arabic: 'Noto Sans Arabic', 'Cairo', sans-serif;
+  --font-display: 'Outfit', 'Cairo', sans-serif;
+  --font-arabic: 'Cairo', 'Noto Sans Arabic', sans-serif;
   --font-body: 'Inter', 'Cairo', sans-serif;
 
   --radius-default: 4px;
@@ -27,6 +32,7 @@
     background-color: var(--color-background-light);
     color: #1e293b; /* slate-800 */
     font-family: var(--font-body);
+    @apply antialiased;
   }
 }
 
@@ -45,4 +51,31 @@
 
 .diagonal-bg {
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+}
+
+/* Premium Saudi UI Touches */
+.premium-shadow {
+  box-shadow: 0 20px 50px -12px rgba(216, 45, 100, 0.15);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Fix for Material Symbols rendering as text */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
 }

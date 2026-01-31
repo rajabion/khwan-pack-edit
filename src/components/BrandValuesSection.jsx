@@ -17,21 +17,21 @@ export default function BrandValuesSection() {
       title: t('values.v2_title'),
       desc: t('values.v2_desc'),
       color: 'bg-secondary',
-      icon: 'speed',
+      icon: 'bolt',
     },
     {
       id: 3,
       title: t('values.v3_title'),
       desc: t('values.v3_desc'),
       color: 'bg-accent',
-      icon: 'palette',
+      icon: 'auto_awesome',
     },
     {
       id: 4,
       title: t('values.v4_title'),
       desc: t('values.v4_desc'),
       color: 'bg-orange',
-      icon: 'lightbulb',
+      icon: 'tips_and_updates',
     },
   ];
 
@@ -41,16 +41,25 @@ export default function BrandValuesSection() {
         {values.map(value => (
           <div
             key={value.id}
-            className={`flex-1 ${value.color} p-12 text-white min-h-[300px] flex flex-col justify-between transition-all duration-500 hover:flex-[1.5] group cursor-default`}
+            className={`flex-1 ${value.color} p-16 text-white min-h-[400px] flex flex-col justify-between transition-all duration-700 hover:flex-[1.8] group cursor-default relative overflow-hidden`}
           >
-            <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-              <span className="material-icons text-3xl">{value.icon}</span>
+            {/* Background Decoration */}
+            <div className="absolute -right-10 -bottom-10 opacity-10 group-hover:scale-150 transition-transform duration-1000">
+              <span className="material-icons-round text-[200px]">
+                {value.icon}
+              </span>
             </div>
-            <div>
-              <h3 className="text-2xl font-black mb-4 font-display uppercase tracking-tight">
+
+            <div className="w-20 h-20 bg-white/20 rounded-[32px] flex items-center justify-center mb-12 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 backdrop-blur-md border border-white/10 relative z-10">
+              <span className="material-icons-round text-4xl">
+                {value.icon}
+              </span>
+            </div>
+            <div className="relative z-10">
+              <h3 className="text-3xl font-black mb-6 font-display uppercase tracking-tight leading-none">
                 {value.title}
               </h3>
-              <p className="text-white/80 font-arabic text-sm leading-relaxed max-w-xs">
+              <p className="text-white/90 font-arabic text-lg leading-relaxed max-w-xs font-medium">
                 {value.desc}
               </p>
             </div>
