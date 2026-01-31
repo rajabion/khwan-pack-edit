@@ -125,7 +125,7 @@ export default function Footer() {
               ></iframe>
             </div>
             <a
-              href="https://maps.app.goo.gl/prE2pJJCX6zag2ZC9"
+              href="https://maps.app.goo.gl/N4rQGjPBLwR3zsgr5"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 inline-flex items-center gap-2 text-xs font-bold text-accent hover:text-white transition-colors uppercase tracking-widest"
