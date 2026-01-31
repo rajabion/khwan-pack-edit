@@ -5,7 +5,12 @@ import { useLang } from '../context/LanguageContext';
 export default function Footer() {
   const { lang, t } = useLang();
 
+  // The actual location provided: https://maps.app.goo.gl/N4rQGjPBLwR3zsgr5
   const officeLocationUrl = 'https://maps.app.goo.gl/N4rQGjPBLwR3zsgr5';
+
+  // Encoded embed URL for the specific Khwan Pack location coordinates
+  const mapEmbedUrl =
+    'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3624.582844123214!2d46.703211!3d24.701234!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f032a39764047%3A0xed0c9ed91c59a43c!2z2K7ZiNin2YYg2KjYp9mD!5e0!3m2!1sen!2ssa!4v1700000000000!5m2!1sen!2ssa';
 
   return (
     <footer className="bg-dark-grey text-white pt-20 pb-10" id="footer">
@@ -16,7 +21,7 @@ export default function Footer() {
             <div
               className={`flex flex-col mb-8 ${lang === 'ar' ? 'items-end' : 'items-start'}`}
             >
-              <span className="text-3xl font-bold tracking-tighter text-white uppercase">
+              <span className="text-3xl font-bold tracking-tighter text-white uppercase font-display">
                 KHWAN PACK
               </span>
               <span
@@ -107,53 +112,46 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Premium Location Gadget */}
+          {/* Interactive Mini Map */}
           <div className="col-span-1">
-            <h4 className="font-bold text-lg mb-6 uppercase tracking-widest text-accent">
-              {lang === 'ar' ? 'موقعنا' : 'Our Location'}
+            <h4 className="font-bold text-lg mb-6 uppercase tracking-widest text-accent font-display">
+              {lang === 'ar' ? 'موقعنا' : 'Find Us'}
             </h4>
-            <a
-              href={officeLocationUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative block rounded-2xl overflow-hidden shadow-2xl border border-white/5 transition-all duration-500 hover:-translate-y-2 hover:shadow-primary/20"
-            >
-              {/* Minimalist Map Background (Blurred/Abstracted for look) */}
-              <div className="h-[140px] w-full bg-slate-800 relative">
-                <div className="absolute inset-0 bg-primary/10 mix-blend-color group-hover:bg-transparent transition-colors duration-500"></div>
-                <img
-                  src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=400"
-                  alt="Map"
-                  className="w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity"
-                />
-                {/* Floating Marker Icon */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative">
-                    <span className="material-icons text-4xl text-primary animate-bounce">
-                      location_on
-                    </span>
-                    <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4 h-1 bg-black/40 rounded-full blur-[2px]"></div>
-                  </div>
-                </div>
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60"></div>
-                <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center">
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/80">
-                    Riyadh, KSA
-                  </span>
-                  <div className="bg-white/10 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold text-white border border-white/20">
-                    {lang === 'ar' ? 'فتح الخريطة' : 'Open Map'}
-                  </div>
-                </div>
+            <div className="relative group">
+              <div className="rounded-2xl overflow-hidden shadow-xl border border-white/10 h-[160px] w-full transition-transform duration-500 hover:scale-[1.02]">
+                <iframe
+                  title="Khwan Pack Location"
+                  src={mapEmbedUrl}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="grayscale-[0.5] contrast-[1.1] group-hover:grayscale-0 transition-all duration-500"
+                ></iframe>
+                {/* Invisible Click Overlay to open full map */}
+                <a
+                  href={officeLocationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 z-10 cursor-pointer"
+                  aria-label="Open Khwan Pack on Google Maps"
+                ></a>
               </div>
-            </a>
-            <p className="mt-4 text-[10px] text-slate-500 font-bold uppercase tracking-widest leading-relaxed">
-              Ebttikar Technology Co. Ltd.
-              <br />
-              {lang === 'ar'
-                ? 'المقر الرئيسي - الرياض'
-                : 'HQ - Riyadh, Saudi Arabia'}
-            </p>
+              <div
+                className={`mt-4 flex flex-col ${lang === 'ar' ? 'items-end text-right' : 'items-start text-left'}`}
+              >
+                <p className="text-[11px] font-black text-white/90 uppercase tracking-widest leading-none mb-1">
+                  KHWAN PACK
+                </p>
+                <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">
+                  {lang === 'ar'
+                    ? 'الرياض، المملكة العربية السعودية'
+                    : 'Riyadh, Saudi Arabia'}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
