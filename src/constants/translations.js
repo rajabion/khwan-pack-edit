@@ -84,6 +84,9 @@ export const translations = {
       message: 'كيف نقدر نخدمك؟',
       send: 'أرسل الطلب',
       info: 'معلومات التواصل',
+      success_title: 'وصلت رسالتك.. وراح نهتم فيها!',
+      success_desc:
+        'فريقنا الإبداعي في <span className="text-primary font-extrabold">خوان باك</span> استلم تفاصيلك. بنراجعها ونرجع لك برد يبرد خاطرك خلال ٢٤ ساعة.',
     },
     catalog: {
       title: 'منتجاتنا.. اللي تجمّل',
@@ -214,6 +217,9 @@ export const translations = {
       message: 'How can we help?',
       send: 'Send Request',
       info: 'Contact Information',
+      success_title: "Message Received.. Let's Start!",
+      success_desc:
+        'Our creative team at <span className="text-primary font-extrabold">Khwan Pack</span> has received your details. We will review them and get back to you within 24 hours.',
     },
     catalog: {
       title: 'Our Collection.. That Inspires',
