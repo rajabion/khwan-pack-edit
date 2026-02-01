@@ -14,10 +14,19 @@ export function CartProvider({ children }) {
 
   const addToCart = (product, quantity) => {
     setCart(prev => {
-      const existing = prev.find(item => item.id === product.id);
+      // Check for same ID AND same options
+      const existing = prev.find(
+        item =>
+          item.id === product.id &&
+          item.selectedSize === product.selectedSize &&
+          item.selectedColor === product.selectedColor,
+      );
+
       if (existing) {
         return prev.map(item =>
-          item.id === product.id
+          item.id === product.id &&
+          item.selectedSize === product.selectedSize &&
+          item.selectedColor === product.selectedColor
             ? { ...item, quantity: item.quantity + quantity }
             : item,
         );
@@ -26,8 +35,13 @@ export function CartProvider({ children }) {
     });
   };
 
-  const removeFromCart = id => {
-    setCart(prev => prev.filter(item => item.id !== id));
+  const removeFromCart = uniqueKey => {
+    setCart(prev =>
+      prev.filter(item => {
+        const itemKey = `${item.id}-${item.selectedSize}-${item.selectedColor}`;
+        return itemKey !== uniqueKey;
+      }),
+    );
   };
 
   const clearCart = () => setCart([]);

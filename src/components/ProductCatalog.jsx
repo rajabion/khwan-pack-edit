@@ -5,20 +5,48 @@ import { useCart } from '../context/CartContext';
 import { useLang } from '../context/LanguageContext';
 
 export default function ProductCatalog() {
-  const [activeCategory, setActiveCategory] = useState('cups');
+  const [activeCategory, setActiveCategory] = useState('hot_cups');
   const [addedItems, setAddedItems] = useState({});
+  const [selections, setSelections] = useState({}); // Track {productId: {size, color}}
+
   const { addToCart } = useCart();
   const { lang, t } = useLang();
 
   const filteredProducts = PRODUCTS.filter(p => p.category === activeCategory);
 
   const handleAddToCart = product => {
-    const size = product.sizes[0];
-    addToCart({ ...product, selectedSize: size }, 1);
+    const productSelection = selections[product.id] || {};
+    // Smart default: take the first available option if none selected
+    const selectedSize =
+      productSelection.size ||
+      (product.options.sizes ? product.options.sizes[0] : null);
+    const selectedColor =
+      productSelection.color ||
+      (product.options.colors ? product.options.colors[0] : null);
+
+    const itemToAdd = {
+      ...product,
+      selectedSize,
+      selectedColor,
+      displayOptions: [selectedSize, selectedColor].filter(Boolean).join(' / '),
+    };
+
+    addToCart(itemToAdd, 1);
+
     setAddedItems(prev => ({ ...prev, [product.id]: true }));
     setTimeout(() => {
       setAddedItems(prev => ({ ...prev, [product.id]: false }));
     }, 2000);
+  };
+
+  const updateSelection = (productId, type, value) => {
+    setSelections(prev => ({
+      ...prev,
+      [productId]: {
+        ...(prev[productId] || {}),
+        [type]: value,
+      },
+    }));
   };
 
   return (
@@ -91,8 +119,21 @@ export default function ProductCatalog() {
                         alt={product.name}
                         className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700"
                       />
-                      <div className="absolute top-6 right-6 bg-white shadow-xl px-4 py-2 rounded-2xl text-[10px] font-black tracking-widest text-primary border border-slate-100 uppercase">
-                        {product.sizes[0]}
+
+                      {/* Selection Summary Badge */}
+                      <div className="absolute top-6 right-6 flex flex-col gap-2 items-end">
+                        {product.options.sizes && (
+                          <div className="bg-white shadow-lg px-3 py-1.5 rounded-xl text-[9px] font-black tracking-widest text-primary border border-slate-100 uppercase">
+                            {selections[product.id]?.size ||
+                              product.options.sizes[0]}
+                          </div>
+                        )}
+                        {product.options.colors && (
+                          <div className="bg-slate-900 shadow-lg px-3 py-1.5 rounded-xl text-[9px] font-black tracking-widest text-white border border-white/10 uppercase">
+                            {selections[product.id]?.color ||
+                              product.options.colors[0]}
+                          </div>
+                        )}
                       </div>
                     </div>
 
@@ -100,16 +141,54 @@ export default function ProductCatalog() {
                       <h3 className="font-display font-black text-2xl mb-3 text-slate-900 leading-tight">
                         {lang === 'ar' ? product.name : product.nameEn}
                       </h3>
-                      <p className="text-slate-500 text-sm mb-8 line-clamp-2 leading-relaxed font-medium">
-                        {product.description}
+                      <p className="text-slate-500 text-sm mb-6 line-clamp-2 leading-relaxed font-medium">
+                        {lang === 'ar'
+                          ? product.description
+                          : product.descriptionEn}
                       </p>
+
+                      {/* Smart Options Selection */}
+                      <div className="space-y-4 mb-8">
+                        {product.options.sizes && (
+                          <div className="flex flex-wrap gap-2">
+                            {product.options.sizes.map(size => (
+                              <button
+                                key={size}
+                                onClick={() =>
+                                  updateSelection(product.id, 'size', size)
+                                }
+                                className={`px-3 py-1 rounded-lg text-[10px] font-black transition-all ${selections[product.id]?.size === size || (!selections[product.id]?.size && product.options.sizes[0] === size) ? 'bg-primary text-white' : 'bg-slate-100 text-slate-400 hover:bg-slate-200'}`}
+                              >
+                                {size}
+                              </button>
+                            ))}
+                          </div>
+                        )}
+
+                        {product.options.colors && (
+                          <div className="flex flex-wrap gap-2">
+                            {product.options.colors.map(color => (
+                              <button
+                                key={color}
+                                onClick={() =>
+                                  updateSelection(product.id, 'color', color)
+                                }
+                                className={`px-3 py-1 rounded-lg text-[10px] font-black transition-all ${selections[product.id]?.color === color || (!selections[product.id]?.color && product.options.colors[0] === color) ? 'bg-secondary text-white' : 'bg-slate-100 text-slate-400 hover:bg-slate-200'}`}
+                              >
+                                {color}
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+
                       <div className="flex items-center justify-between border-t border-slate-50 pt-8">
                         <div className="flex flex-col">
                           <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">
-                            Material
+                            {lang === 'ar' ? 'الجودة' : 'Material'}
                           </span>
                           <span className="text-xs font-bold text-slate-900">
-                            High Grade
+                            {lang === 'ar' ? 'نخب أول' : 'High Grade'}
                           </span>
                         </div>
                         <button
