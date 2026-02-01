@@ -8,9 +8,11 @@ export default function AboutSection() {
   return (
     <section id="about" className="py-32 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-24 items-center">
+        <div className="grid lg:grid-cols-2 gap-24 items-start">
           {/* Visual Column */}
-          <div className={`relative ${lang === 'ar' ? 'order-2' : ''}`}>
+          <div
+            className={`relative ${lang === 'ar' ? 'order-2' : ''} sticky top-32`}
+          >
             <div className="relative z-10 rounded-[40px] overflow-hidden shadow-2xl border-8 border-slate-50">
               <img
                 src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800"
@@ -19,11 +21,9 @@ export default function AboutSection() {
               />
             </div>
 
-            {/* Ambient Decorations */}
-            <div className="absolute -bottom-12 -right-12 w-80 h-80 bg-primary/5 rounded-full -z-10 blur-3xl animate-pulse"></div>
+            <div className="absolute -bottom-12 -right-12 w-80 h-80 bg-primary/5 rounded-full -z-10 blur-3xl"></div>
             <div className="absolute -top-12 -left-12 w-64 h-64 bg-secondary/5 rounded-full -z-10 blur-2xl"></div>
 
-            {/* Float Floating Badge */}
             <div
               className={`absolute -bottom-6 ${lang === 'ar' ? 'left-12' : 'right-12'} bg-slate-900 text-white p-10 rounded-[32px] shadow-2xl border border-white/10 max-w-[280px] z-20`}
             >
@@ -35,7 +35,7 @@ export default function AboutSection() {
                   verified
                 </span>
               </div>
-              <p className="text-slate-400 font-bold text-[10px] uppercase tracking-[0.2em] leading-relaxed">
+              <p className="text-slate-400 font-bold text-[10px] uppercase tracking-[0.2em] leading-relaxed text-center">
                 {lang === 'ar'
                   ? 'جودة وطباعة سعودية فخمة'
                   : 'Premium Saudi Quality & Printing'}
@@ -55,7 +55,7 @@ export default function AboutSection() {
               {t('about.title')}
             </h2>
 
-            <div className="space-y-8 text-xl text-slate-500 leading-relaxed font-arabic font-medium max-w-2xl">
+            <div className="space-y-8 text-xl text-slate-500 leading-relaxed font-arabic font-medium">
               <p dangerouslySetInnerHTML={{ __html: t('about.desc1') }} />
 
               <div
@@ -74,7 +74,6 @@ export default function AboutSection() {
               <p className="text-lg opacity-80">{t('about.desc2')}</p>
             </div>
 
-            {/* Core Values Icons */}
             <div className="mt-16 grid grid-cols-3 gap-8 border-t border-slate-100 pt-12">
               <div className="flex flex-col items-center lg:items-start group">
                 <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm">
@@ -108,7 +107,7 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* INTEGRATED TRUST BAR (Inside the container) */}
+        {/* RESTRUCTURED GALLERY: Utilizing the full width under the grid but within the container */}
         <PartnerMarquee />
       </div>
     </section>
