@@ -18,10 +18,29 @@ export default function QuoteReview() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    // Simulate form submission
-    console.log('Submitting Quote Request:', { user: formData, items: cart });
-    setSubmitted(true);
-    clearCart();
+
+    const encode = data => {
+      return Object.keys(data)
+        .map(
+          key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]),
+        )
+        .join('&');
+    };
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': 'quote-request',
+        ...formData,
+        'cart-json': JSON.stringify(cart),
+      }),
+    })
+      .then(() => {
+        setSubmitted(true);
+        clearCart();
+      })
+      .catch(error => alert(error));
   };
 
   if (submitted) {
