@@ -1,104 +1,134 @@
 export const PRODUCT_CATEGORIES = [
-  { id: 'cups', nameAr: 'أكواب', nameEn: 'Cups' },
-  { id: 'boxes', nameAr: 'بوكسات', nameEn: 'Boxes' },
+  { id: 'hot_cups', nameAr: 'أكواب حارة', nameEn: 'Hot Cups' },
+  { id: 'cold_cups', nameAr: 'أكواب باردة', nameEn: 'Cold Cups' },
+  { id: 'food_boxes', nameAr: 'علب الأطعمة', nameEn: 'Food Packaging' },
   { id: 'accessories', nameAr: 'كماليات', nameEn: 'Accessories' },
   { id: 'hygiene', nameAr: 'نظافة', nameEn: 'Hygiene' },
 ];
 
 export const PRODUCTS = [
-  // Paper Cups
+  /* --- CATEGORY: HOT DRINKS --- */
   {
-    id: 'p-single-white',
-    category: 'cups',
-    name: 'كوب ورقي طبقة واحدة - أبيض',
-    nameEn: 'Single Wall Paper Cup - White',
-    sizes: ['4oz', '8oz', '12oz', '16oz'],
-    image:
-      'https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&q=80&w=400',
-    description: 'كوب ورقي كلاسيكي مناسب للمشروبات الحارة والباردة.',
+    id: 'h-001',
+    category: 'hot_cups',
+    name: 'أكواب ورقية (طبقة واحدة)',
+    nameEn: 'Single Wall Paper Cups',
+    description:
+      'أكواب ورقية اقتصادية وعملية، متوفرة بالأبيض، الأسود، والكرافت.',
+    descriptionEn:
+      'Economical and practical paper cups. Available in White, Black, and Kraft.',
+    image: '/assets/02_Product_Catalog/Paper_Cups/Single_Wall.jpg',
+    sizes: ['4oz', '7oz', '8oz', '12oz'],
+    colors: ['White', 'Black', 'Kraft'],
   },
   {
-    id: 'p-double-kraft',
-    category: 'cups',
-    name: 'كوب ورقي طبقتين - كرافت',
-    nameEn: 'Double Wall Paper Cup - Kraft',
-    sizes: ['8oz', '12oz'],
-    image:
-      'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&q=80&w=400',
-    description: 'حماية إضافية للحرارة مع مظهر طبيعي أنيق.',
+    id: 'h-002',
+    category: 'hot_cups',
+    name: 'أكواب ورقية (طبقتين)',
+    nameEn: 'Double Wall Paper Cups',
+    description:
+      'عزل حراري عالي الجودة للحماية من الحرارة، مثالية للكافيهات المختصة.',
+    descriptionEn:
+      'High-quality thermal insulation. Perfect for specialty coffee shops.',
+    image: '/assets/02_Product_Catalog/Paper_Cups/Double_Wall_Kraft.jpg',
+    sizes: ['4oz', '8oz', '12oz'],
+    colors: ['White', 'Black', 'Kraft'],
   },
   {
-    id: 'p-ripple-black',
-    category: 'cups',
-    name: 'كوب مموج (Ripple) - أسود',
-    nameEn: 'Ripple Cup - Black',
-    sizes: ['8oz', '12oz'],
-    image:
-      'https://images.unsplash.com/photo-1513530534585-c7b1394c6d51?auto=format&fit=crop&q=80&w=400',
-    description: 'تصميم مموج يوفر عزل حراري ممتاز وملمس فخم.',
+    id: 'h-003',
+    category: 'hot_cups',
+    name: 'أكواب ريبل (متموجة)',
+    nameEn: 'Ripple Wall Cups',
+    description: 'تصميم متموج فاخر يوفر حماية قصوى لليدين ومظهر أنيق.',
+    descriptionEn:
+      'Premium ripple design offering maximum hand protection and elegant look.',
+    image: '/assets/02_Product_Catalog/Paper_Cups/Ripple_Cups.jpg',
+    sizes: ['4oz', '8oz', '12oz'],
+    colors: ['Black', 'Kraft'],
   },
-  // Cold Cups
+
+  /* --- CATEGORY: COLD DRINKS --- */
   {
-    id: 'c-u-shape',
-    category: 'cups',
-    name: 'كوب بلاستيك U-Shape',
-    nameEn: 'Plastic U-Shape Cold Cup',
-    sizes: ['12oz', '16oz', '22oz'],
-    image:
-      'https://images.unsplash.com/photo-1544203415-3855a8f62776?auto=format&fit=crop&q=80&w=400',
-    description: 'مثالي للمشروبات الباردة والآيس كوفي.',
-  },
-  // Packaging
-  {
-    id: 'b-kraft-boat',
-    category: 'boxes',
-    name: 'قوارب كرافت (Kraft Boat)',
-    nameEn: 'Kraft Food Boat',
-    sizes: ['S', 'M', 'L'],
-    image:
-      'https://images.unsplash.com/photo-1584283581177-8f553258c49e?auto=format&fit=crop&q=80&w=400',
-    description: 'حل عملي لتقديم الوجبات السريعة والسناكس.',
+    id: 'c-001',
+    category: 'cold_cups',
+    name: 'أكواب بلاستيكية شكل U',
+    nameEn: 'U-Shape Plastic Cups',
+    description: 'تصميم عصري للمشروبات الباردة والعصائر، متينة وشفافة.',
+    descriptionEn:
+      'Modern U-shape design for cold drinks and juices. Durable and clear.',
+    image: '/assets/02_Product_Catalog/Cold_Cups/U_Shape_Plastic.jpg',
+    sizes: ['12oz', '16oz'],
   },
   {
-    id: 'b-pizza',
-    category: 'boxes',
-    name: 'كرتون بيتزا فاخر',
-    nameEn: 'Premium Pizza Box',
-    sizes: ['9"', '10"', '12"'],
-    image:
-      'https://images.unsplash.com/photo-1593504049359-74330189a345?auto=format&fit=crop&q=80&w=400',
-    description: 'كرتون قوي يحافظ على حرارة البيتزا وقرمشتها.',
+    id: 'c-002',
+    category: 'cold_cups',
+    name: 'أكياس موهيتو (مع سحاب)',
+    nameEn: 'Mojito Juice Bags',
+    description: 'أكياس عصير شفافة مع فتحة للمصاص، خيار مميز للطلبات الخارجية.',
+    descriptionEn:
+      'Clear juice pouches with zipper and straw hole. Distinctive choice for takeout.',
+    image: '/assets/02_Product_Catalog/Cold_Cups/Mojito_Bags.jpg',
+    sizes: ['450ml', '500ml'],
   },
-  // Accessories
+
+  /* --- CATEGORY: FOOD PACKAGING --- */
   {
-    id: 'a-cutlery-vip',
+    id: 'f-001',
+    category: 'food_boxes',
+    name: 'صحن ورق كرافت (قارب)',
+    nameEn: 'Kraft Paper Boats',
+    description: 'مثالي للوجبات الخفيفة، البطاطس، والبرجر. مقاوم للزيوت.',
+    descriptionEn: 'Perfect for snacks, fries, and burgers. Grease resistant.',
+    image: '/assets/02_Product_Catalog/Food_Boxes/Kraft_Boats.jpg',
+    sizes: ['#4', '#5', '#6'],
+  },
+  {
+    id: 'f-002',
+    category: 'food_boxes',
+    name: 'علب ورقية بنافذة',
+    nameEn: 'Window Kraft Boxes',
+    description: 'علب للسلطات أو الحلويات مع نافذة شفافة لإظهار المنتج.',
+    descriptionEn:
+      'Boxes for salads or sweets with a clear window to showcase the product.',
+    image: '/assets/02_Product_Catalog/Food_Boxes/Window_Boxes.jpg',
+    sizes: ['900ml', '1200ml', '1600ml'],
+  },
+  {
+    id: 'f-003',
+    category: 'food_boxes',
+    name: 'علب مايكرويف (قاعدة سوداء)',
+    nameEn: 'Microwave Containers',
+    description: 'علب فاخرة تتحمل الحرارة، قاعدة سوداء وغطاء شفاف محكم.',
+    descriptionEn:
+      'Premium heat-resistant containers. Black base with tight clear lid.',
+    image: '/assets/02_Product_Catalog/Food_Boxes/Microwave_Containers.jpg',
+    shapes: ['Rectangular', 'Round'],
+    sizes: ['1 Section', '2 Sections', '3 Sections'],
+  },
+
+  /* --- CATEGORY: HYGIENE & ACCESSORIES --- */
+  {
+    id: 'a-001',
     category: 'accessories',
-    name: 'طقم ملاعق وشوك VIP (أسود)',
-    nameEn: 'VIP Cutlery Set (Black)',
-    sizes: ['Standard'],
-    image:
-      'https://images.unsplash.com/photo-1591195853828-11db50a44f51?auto=format&fit=crop&q=80&w=400',
-    description: 'إكسسوارات فاخرة تليق بضيافتك.',
+    name: 'مجموعة أدوات مائدة VIP',
+    nameEn: 'VIP Cutlery Set',
+    description: 'مغلفة آلياً: ملعقة، شوكة، سكين، منديل. لون أسود فاخر.',
+    descriptionEn:
+      'Auto-wrapped: Spoon, Fork, Knife, Napkin. Premium Black color.',
+    image: '/assets/02_Product_Catalog/Accessories/Cutlery_Sets.jpg',
+    colors: ['Black'],
   },
   {
-    id: 'a-sugar-sticks',
-    category: 'accessories',
-    name: 'أصابع سكر مغلفة',
-    nameEn: 'Wrapped Sugar Sticks',
-    sizes: ['5g'],
-    image:
-      'https://images.unsplash.com/photo-1533038590840-1cde6e668a91?auto=format&fit=crop&q=80&w=400',
-    description: 'سكر بجودة عالية وتغليف أنيق.',
-  },
-  // Hygiene
-  {
-    id: 'h-gloves-vinyl',
+    id: 'a-002',
     category: 'hygiene',
-    name: 'قفازات فينيل (Vinyl)',
+    name: 'قفازات فينيل',
     nameEn: 'Vinyl Gloves',
-    sizes: ['S', 'M', 'L', 'XL'],
-    image:
-      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=400',
-    description: 'حماية وأمان لفريق عملك.',
+    description:
+      'قفازات عالية الجودة لتحضير الطعام، متوفرة باللون الأسود أو الشفاف.',
+    descriptionEn:
+      'High-quality food prep gloves. Available in Black or Clear.',
+    image: '/assets/02_Product_Catalog/Hygiene/Gloves.jpg',
+    sizes: ['M', 'L', 'XL'],
+    colors: ['Black', 'Clear'],
   },
 ];
