@@ -96,55 +96,52 @@ const CLIENTS = [
 export default function PartnerMarquee() {
   const { lang } = useLang();
 
-  // Duplicate list twice for a super-long seamless loop
-  const displayClients = [...CLIENTS, ...CLIENTS, ...CLIENTS];
+  // Create a very long list for seamlessness
+  const displayClients = [...CLIENTS, ...CLIENTS, ...CLIENTS, ...CLIENTS];
 
   return (
-    <div className="mt-24 relative">
+    <div className="mt-32 relative">
       <div
-        className={`mb-10 flex flex-col ${lang === 'ar' ? 'items-end' : 'items-start'}`}
+        className={`mb-12 flex flex-col ${lang === 'ar' ? 'items-end' : 'items-start'}`}
       >
-        <div className="flex items-center gap-3 mb-2">
-          <span className="w-8 h-[2px] bg-primary"></span>
+        <div className="flex items-center gap-4 mb-3">
+          <span className="w-12 h-[2px] bg-primary"></span>
           <span className="text-[10px] font-black text-primary uppercase tracking-[0.4em]">
-            {lang === 'ar' ? 'شركاء النجاح' : 'Partners in Success'}
+            {lang === 'ar' ? 'شركاء النجاح' : 'Success Partners'}
           </span>
         </div>
-        <h3 className="text-2xl font-black text-slate-900 font-display uppercase tracking-tight">
-          {lang === 'ar'
-            ? 'العلامات التجارية التي نخدمها'
-            : 'Trusted by Leading Brands'}
+        <h3 className="text-3xl font-black text-slate-900 font-display uppercase tracking-tight">
+          {lang === 'ar' ? 'علامات تجارية تثق بنا' : 'Brands That Trust Us'}
         </h3>
       </div>
 
-      {/* Marquee Container with Faded Edges */}
-      <div className="relative w-full overflow-hidden py-4 mask-fade-edges">
+      {/* Marquee Container */}
+      <div className="relative w-full overflow-hidden py-8 mask-fade-edges">
         <motion.div
-          className="flex gap-6 w-max"
+          className="flex gap-8 w-max"
           animate={{
-            x: lang === 'ar' ? ['-66.66%', '0%'] : ['0%', '-66.66%'],
+            x: lang === 'ar' ? [-2000, 0] : [0, -2000],
           }}
           transition={{
-            duration: 40,
+            duration: 50,
             repeat: Infinity,
             ease: 'linear',
-            repeatType: 'loop',
           }}
           drag="x"
-          dragConstraints={{ left: -2000, right: 2000 }}
+          dragConstraints={{ left: -3000, right: 3000 }}
           whileTap={{ cursor: 'grabbing' }}
         >
           {displayClients.map((client, index) => (
             <div
               key={`${client.id}-${index}`}
-              className={`${client.bgColor} min-w-[240px] h-[120px] rounded-[24px] p-6 flex flex-col justify-center items-center text-center shadow-sm border border-slate-50 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 group/card`}
+              className={`${client.bgColor} min-w-[260px] h-[140px] rounded-[32px] p-8 flex flex-col justify-center items-center text-center shadow-lg shadow-slate-200/50 border border-slate-50 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 group/card`}
             >
               <span
-                className={`text-xl mb-1 tracking-tight ${client.style} transition-transform duration-500 group-hover/card:scale-110`}
+                className={`text-2xl mb-2 tracking-tight ${client.style} transition-transform duration-500 group-hover/card:scale-110`}
               >
                 {client.name}
               </span>
-              <p className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em]">
+              <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">
                 {lang === 'ar' ? client.industryAr : client.industryEn}
               </p>
             </div>
