@@ -53,6 +53,16 @@
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
 }
 
+.mask-fade-edges {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
+}
+
 /* Premium Saudi UI Touches */
 .premium-shadow {
   box-shadow: 0 20px 50px -12px rgba(216, 45, 100, 0.15);

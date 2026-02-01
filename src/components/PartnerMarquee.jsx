@@ -6,9 +6,9 @@ const CLIENTS = [
   {
     id: 1,
     name: 'GLAZE',
-    industryAr: 'قهوة مختصة / حلويات',
-    industryEn: 'Specialty Coffee / Dessert',
-    style: 'text-black font-serif',
+    industryAr: 'قهوة مختصة',
+    industryEn: 'Specialty Coffee',
+    style: 'text-slate-900 font-serif',
     bgColor: 'bg-white',
   },
   {
@@ -56,7 +56,7 @@ const CLIENTS = [
     name: "JOE'S CAFE",
     industryAr: 'كافيه',
     industryEn: 'Cafe',
-    style: 'text-yellow-400 font-display',
+    style: 'text-yellow-500 font-display',
     bgColor: 'bg-white',
   },
   {
@@ -64,7 +64,7 @@ const CLIENTS = [
     name: 'XV CAFE',
     industryAr: 'كافيه',
     industryEn: 'Cafe',
-    style: 'text-black font-serif tracking-[0.3em]',
+    style: 'text-slate-900 font-serif tracking-[0.3em]',
     bgColor: 'bg-white',
   },
   {
@@ -96,37 +96,40 @@ const CLIENTS = [
 export default function PartnerMarquee() {
   const { lang } = useLang();
 
-  // Duplicate list for seamless loop
-  const displayClients = [...CLIENTS, ...CLIENTS];
+  // Duplicate list twice for a super-long seamless loop
+  const displayClients = [...CLIENTS, ...CLIENTS, ...CLIENTS];
 
   return (
-    <div className="py-20 bg-slate-50/50 border-y border-slate-100 overflow-hidden relative group">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div
-          className={`flex flex-col ${lang === 'ar' ? 'items-end' : 'items-start'}`}
-        >
-          <span className="text-[10px] font-black text-primary uppercase tracking-[0.4em] mb-4">
+    <div className="mt-24 relative">
+      <div
+        className={`mb-10 flex flex-col ${lang === 'ar' ? 'items-end' : 'items-start'}`}
+      >
+        <div className="flex items-center gap-3 mb-2">
+          <span className="w-8 h-[2px] bg-primary"></span>
+          <span className="text-[10px] font-black text-primary uppercase tracking-[0.4em]">
             {lang === 'ar' ? 'شركاء النجاح' : 'Partners in Success'}
           </span>
-          <h3 className="text-3xl font-black text-slate-900 font-display">
-            {lang === 'ar' ? 'عملاؤنا الذين نعتز بهم' : 'Brands That Trust Us'}
-          </h3>
         </div>
+        <h3 className="text-2xl font-black text-slate-900 font-display uppercase tracking-tight">
+          {lang === 'ar'
+            ? 'العلامات التجارية التي نخدمها'
+            : 'Trusted by Leading Brands'}
+        </h3>
       </div>
 
-      {/* Marquee Container */}
-      <div className="flex overflow-hidden select-none">
+      {/* Marquee Container with Faded Edges */}
+      <div className="relative w-full overflow-hidden py-4 mask-fade-edges">
         <motion.div
-          className="flex gap-8 px-4"
+          className="flex gap-6 w-max"
           animate={{
-            x: lang === 'ar' ? [0, 1000] : [0, -1000],
+            x: lang === 'ar' ? ['-66.66%', '0%'] : ['0%', '-66.66%'],
           }}
           transition={{
-            duration: 30,
+            duration: 40,
             repeat: Infinity,
             ease: 'linear',
+            repeatType: 'loop',
           }}
-          style={{ width: 'fit-content' }}
           drag="x"
           dragConstraints={{ left: -2000, right: 2000 }}
           whileTap={{ cursor: 'grabbing' }}
@@ -134,22 +137,20 @@ export default function PartnerMarquee() {
           {displayClients.map((client, index) => (
             <div
               key={`${client.id}-${index}`}
-              className={`${client.bgColor} min-w-[280px] h-[160px] rounded-3xl p-8 flex flex-col justify-center items-center text-center shadow-sm border border-slate-100 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 group/card`}
+              className={`${client.bgColor} min-w-[240px] h-[120px] rounded-[24px] p-6 flex flex-col justify-center items-center text-center shadow-sm border border-slate-50 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 group/card`}
             >
-              <span className={`text-2xl mb-2 tracking-tight ${client.style}`}>
+              <span
+                className={`text-xl mb-1 tracking-tight ${client.style} transition-transform duration-500 group-hover/card:scale-110`}
+              >
                 {client.name}
               </span>
-              <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest group-hover/card:text-primary transition-colors">
+              <p className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em]">
                 {lang === 'ar' ? client.industryAr : client.industryEn}
               </p>
             </div>
           ))}
         </motion.div>
       </div>
-
-      {/* Gradient Fades for depth */}
-      <div className="absolute top-0 left-0 w-40 h-full bg-gradient-to-r from-background-light to-transparent z-10"></div>
-      <div className="absolute top-0 right-0 w-40 h-full bg-gradient-to-l from-background-light to-transparent z-10"></div>
     </div>
   );
 }
